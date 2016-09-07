@@ -24,26 +24,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 /**
- Root path - homepage
+ Host client side files
  */
-app.get('/', function(req, res) {
-	res.status(200).sendFile(path.resolve('client/index.html'));
-});
-
-app.get('/event', function(req, res) {
-	res.status(200).sendFile(path.resolve('client/event.html'));
-});
-
-/**
- Files
- */
-app.get('/index.js', function(req, res) {
-	res.status(200).sendFile(path.resolve('client/index.js'));
-});
-
-app.get('/event.js', function(req, res) {
-	res.status(200).sendFile(path.resolve('client/event.js'));
-});
+app.use(express.static(path.join(__dirname, '../client/')));
+ 
 
 /** 
  User related routes
