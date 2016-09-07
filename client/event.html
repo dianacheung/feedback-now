@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Feedback Now Webapp</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="event.js"></script>
+</head>
+
+<body>
+	<h1>Event</h1>
+	
+	
+	<div id="div-display-feedback">
+		<a href="/">Back to Dashboard</a>
+		<p>Feedback so far</p>
+	</div>
+	
+	<div id="div-feedback">
+		<p>Submit feedback</p>
+		  <form method="POST" action='/feedback'>
+			<input id="event_ref" name="event_ref" type="hidden" value=""></input>		
+			<input type="radio" name="sentiment" value="happy">happy</input>
+			<input type="radio" name="sentiment" value="neutral">neutral</input>
+			<input type="radio" name="sentiment" value="sad">sad</input>		
+			<input name="commentary" type="text" placeholder="commentary"></input>
+			<input type='submit' value="submit feedback">
+		  </form>
+	</div>
+
+
+</body>
+
+</html>

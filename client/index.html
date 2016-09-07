@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Feedback Now Webapp</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="index.js"></script>
+</head>
+
+<body>
+	<h1>Welcome to Feedback Now</h1>
+	
+	<div id="div-user">
+	  <a href="/logout">Logout</a>
+	  <h2>My Dashboard</h2>
+	  <form method="POST" action='/event'>
+		<input name="summary" type="text" placeholder="event summary"></input>
+		<input name="cohort" type="number" placeholder="cohort number"></input>
+		<input name="start" type="datetime-local" placeholder="start"></input>
+		<input name="end" type="datetime-local" placeholder="end"></input>
+		<input type='submit' value="add event">
+	  </form>
+	</div>
+
+	<div id="div-login">
+	  <form method="POST" action='/login'>
+		<input name="username" type="text" placeholder="username"></input>
+		<input name="password" type="password" placeholder="password"></input>
+		<input type='submit' value="login">
+	  </form>
+	</div>
+	
+	<div id="div-signup">
+	  <form method="POST" action='/signup'>
+		<input name="username" type="text" placeholder="username"></input>
+		<input name="password" type="password" placeholder="password"></input>
+		<input type='submit' value="signup">
+	  </form>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "feedback-now",
+  "version": "1.0.0",
+  "description": "webapp for getting feedback for each event",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server/server.js",
+    "test": "mocha ./test"
+  },
+  "author": "Diana Cheung",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0",
+    "path": "^0.12.7",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "supertest": "^2.0.0"
+  }
+}
