@@ -1,12 +1,11 @@
 $(document).ready(function() {
-	console.log('doc ready');
+
 	// check if user is logged in
 	isLoggedIn();
 });
 
 function isLoggedIn() {
 	var ssid = getCookie("ssid");
-	console.log('ssid', ssid);
 	
 	if(ssid !== "") { // there is user
 	  // hide login and signup
@@ -31,7 +30,6 @@ function showEvents() {
 		method: "GET",
 		url: "/events",
 		success: function(results) {
-			console.log('results', results);
 			
 			var htmlStr = "";
 			
@@ -40,7 +38,7 @@ function showEvents() {
 				
 				var hrefStr = "/event?id=" + evt._id;
 				
-				htmlStr += "<a href=\'" + hrefStr + "\'>" + evt.summary + " (" + evt.start  + " to " + evt.end + ")</a>";
+				htmlStr += "<a href=\'" + hrefStr + "\'>" + evt.summary + " (" + evt.start  + " to " + evt.end + ") cohort: " + evt.cohort + "</a>";
 				htmlStr += "<br>";
 			}
 			

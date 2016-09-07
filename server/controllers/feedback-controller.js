@@ -3,7 +3,7 @@ var Feedback = require('../models/feedback-model');
 var feedbackController = {};
 
 feedbackController.getFeedback = function(req, res) {
-	console.log('req.params', req.params); //57cfa27f21049a11204c8dc4
+	//console.log('req.params', req.params);
 	var query = {};
 	query.event_ref = req.params.id;
 	
@@ -12,15 +12,15 @@ feedbackController.getFeedback = function(req, res) {
 			console.log('find error:', err);
 			return res.status(500).send(err);
 		} else {
-			console.log('find results:', results);
+			//console.log('find results:', results);
 			return res.status(200).send(results);
 		}
 	});
 };
 
 feedbackController.postFeedback = function(req, res, next) {
-	console.log('req.body', req.body);
-	console.log('req.cookies', req.cookies);
+	//console.log('req.body', req.body);
+	//console.log('req.cookies', req.cookies);
 	
 	/*
 	Feedback.create(req.body, function(err, result) {

@@ -74,6 +74,9 @@ app.get('/logout', function(req, res) {
 // get events for a specific user id
 app.get('/events', eventCtrl.getEvents);
 
+// get event details for a specific event id
+app.get('/events/:id', eventCtrl.getEvent);
+
 // create an event for a specific user id
 app.post('/event', eventCtrl.postEvent, function(req, res) {
 	res.redirect('/');

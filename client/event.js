@@ -1,12 +1,36 @@
 $(document).ready(function() {
-	console.log('doc ready');
+	
+	displayHeading();
+	
 	// check if user is logged in
 	isLoggedIn();
 });
 
+function displayHeading() {
+	// get eventid
+	
+	var qIndex = window.location.search.indexOf("=");
+	if(qIndex > -1) {
+		var eventId = window.location.search.slice(qIndex + 1);
+		
+		// make ajax call to get details for this event
+		$.ajax({
+			method: "GET",
+			url: "/events/" + eventId,
+			success: function(result) {
+				
+				var htmlStr =  "<p>" + result.summary + " (" + result.start  + " to " + result.end + ") cohort: " + result.cohort + "</p>";
+								
+				$('#event-heading').append(htmlStr);
+				
+			}
+		});
+	
+	}
+}
+
 function isLoggedIn() {
 	var ssid = getCookie("ssid");
-	console.log('ssid', ssid);
 	
 	if(ssid !== "") { // there is user
 	  // hide feedback form
@@ -24,7 +48,6 @@ function isLoggedIn() {
 	  $('#div-feedback').show();
 	  setEventId();
 	  
-
 	}
 }
 
@@ -45,14 +68,12 @@ function showFeedback() {
 	var qIndex = window.location.search.indexOf("=");
 	if(qIndex > -1) {
 		var eventId = window.location.search.slice(qIndex + 1);
-		console.log('eventId', eventId);
 		
 		// make ajax call to get list of feedback for this event
 		$.ajax({
 			method: "GET",
 			url: "/feedback/" + eventId,
 			success: function(results) {
-				console.log('results', results);
 				
 				var htmlStr = "";
 				
