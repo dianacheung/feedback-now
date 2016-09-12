@@ -1,0 +1,22 @@
+<h1>Event</h1>
+<div id="event-heading"></div>
+
+<div id="div-display-feedback" ng-show="ssid">
+	<a href="#/">Back to Dashboard</a>
+	<p>Feedback so far</p>
+	<ul>
+		<li ng-repeat="fb in feedback">Sentiment: {{fb.sentiment}}; Comment: {{fb.commentary}}</li>
+	</ul>
+</div>
+
+<div id="div-feedback" ng-hide="ssid">
+	<p>Submit feedback</p>
+	  <form name="fbForm" ng-submit="postFeedback()">
+			<input id="event_ref" name="event_ref" type="hidden" value="" ng-model="feedbackForm.event_ref"></input>		
+			<input type="radio" name="sentiment" value="happy" ng-model="feedbackForm.sentiment">happy</input>
+			<input type="radio" name="sentiment" value="neutral" ng-model="feedbackForm.sentiment">neutral</input>
+			<input type="radio" name="sentiment" value="sad" ng-model="feedbackForm.sentiment">sad</input>		
+			<input name="commentary" type="text" placeholder="commentary" ng-model="feedbackForm.commentary"></input>
+			<input type='submit' value="submit feedback">
+	  </form>
+</div>

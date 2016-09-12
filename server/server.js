@@ -74,11 +74,11 @@ app.post('/event', eventCtrl.postEvent, function(req, res) {
 app.get('/feedback/:id', feedbackCtrl.getFeedback);
 
 // create a feedback for a specific event id
-app.post('/feedback', feedbackCtrl.postFeedback, function(req, res) {
+/*app.post('/feedback', feedbackCtrl.postFeedback, function(req, res) {
 	// redirect back to /event?=eventId page
 	res.redirect('/event?id=' + req.body.event_ref);
-});
-
+});*/
+app.post('/feedback', feedbackCtrl.postFeedback);
 
 app.listen(8000, () => {
 	console.log('Server listening on port 8000!');

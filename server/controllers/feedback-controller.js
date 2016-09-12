@@ -18,7 +18,7 @@ feedbackController.getFeedback = function(req, res) {
 	});
 };
 
-feedbackController.postFeedback = function(req, res, next) {
+feedbackController.postFeedback = function(req, res) {
 	//console.log('req.body', req.body);
 	//console.log('req.cookies', req.cookies);
 	
@@ -31,14 +31,27 @@ feedbackController.postFeedback = function(req, res, next) {
 		}
 	});
 	*/
-	
+	/*
 	Feedback.create(req.body, function(err, result) {
 		if(err) {
 			console.log('postFeedback err:', err);
-		} else {			
+		} else {
+			console.log('saved feedback', result);
 			next();
 		}
 	});
+  */
+
+	Feedback.create(req.body, function(err, result) {
+		if(err) {
+			console.log('postFeedback err:', err);
+		} else {
+			console.log('saved feedback', result);
+			res.status(200).send(result);
+		}
+	});
+
+
 };
 
 module.exports = feedbackController;

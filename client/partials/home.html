@@ -1,0 +1,34 @@
+<h1>Welcome to Feedback Now!</h1>
+
+<div id="div-user" ng-show="ssid">
+  <a href="/logout">Logout</a>
+  <h2>My Dashboard</h2>
+  <form method="POST" action='/event'>
+    <input name="summary" type="text" placeholder="event summary"></input>
+    <input name="cohort" type="number" placeholder="cohort number"></input>
+    <input name="start" type="datetime-local" placeholder="start"></input>
+    <input name="end" type="datetime-local" placeholder="end"></input>
+    <input type='submit' value="add event">
+  </form>
+
+  <ul>
+	  <li ng-repeat="eObj in events"><a ng-href="#/event?id={{eObj._id}}">{{eObj.summary}} ({{eObj.start}} to {{eObj.end}}): cohort {{eObj.cohort}}</a></li>
+  </ul>
+
+</div>
+
+<div id="div-login" ng-hide="ssid">
+  <form method="POST" action='/login'>
+    <input name="username" type="text" placeholder="username"></input>
+    <input name="password" type="password" placeholder="password"></input>
+    <input type='submit' value="login">
+  </form>
+</div>
+
+<div id="div-signup" ng-hide="ssid">
+  <form method="POST" action='/signup'>
+    <input name="username" type="text" placeholder="username"></input>
+    <input name="password" type="password" placeholder="password"></input>
+    <input type='submit' value="signup">
+  </form>
+</div>
